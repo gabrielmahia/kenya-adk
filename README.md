@@ -2,7 +2,7 @@
 
 > The first [Google Agent Development Kit (ADK)](https://github.com/google/adk-python) implementation for East African civic data. An intelligent agent that can query Kenya's parliament, county budgets, drought data, and constitutional rights — powered by Gemini, with MCP tools and A2A protocol integration.
 
-[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Google ADK](https://img.shields.io/badge/Google%20ADK-v1.31.1-blue)](https://github.com/google/adk-python)
 [![A2A Protocol](https://img.shields.io/badge/A2A-Protocol-green)](https://github.com/a2aproject/A2A)
 [![MCP](https://img.shields.io/badge/MCP-Compatible-green)](https://modelcontextprotocol.io)
@@ -89,6 +89,6 @@ Built on [Kenya Civic Datasets](https://kaggle.com/datasets/gmahia/kenya-civic-d
 ## IP & Collaboration
 
 © 2026 Gabriel Mahia · [contact@aikungfu.dev](mailto:contact@aikungfu.dev)
-License: CC BY-NC-ND 4.0
+License: MIT
 Built on Google ADK (Apache 2.0)
 Not affiliated with Google, Parliament of Kenya, or Controller of Budget.
