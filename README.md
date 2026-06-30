@@ -1,6 +1,6 @@
 # 🤖 KenyaADK — East African AI Agent (Google ADK)
 
-> The first [Google Agent Development Kit (ADK)](https://github.com/google/adk-python) implementation for East African civic data. An intelligent agent that can query Kenya's parliament, county budgets, drought data, and constitutional rights — powered by Gemini, with MCP tools and A2A protocol integration.
+> [Google Agent Development Kit (ADK)](https://github.com/google/adk-python) implementation for East African civic data. An intelligent agent that can query Kenya's parliament, county budgets, drought data, and constitutional rights — powered by Gemini, with MCP tools and A2A protocol integration.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Google ADK](https://img.shields.io/badge/Google%20ADK-v1.31.1-blue)](https://github.com/google/adk-python)
