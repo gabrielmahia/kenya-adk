@@ -9,7 +9,7 @@
 
 ## Why ADK + East Africa
 
-Google ADK (Apache 2.0) is the same framework powering Google Agentspace and Customer Engagement Suite. KenyaADK is the first application of this framework to East African civic infrastructure — combining ADK's orchestration capabilities with Kenya's public datasets.
+Google ADK (Apache 2.0) is the same framework powering Google Agentspace and Customer Engagement Suite. KenyaADK applies this framework to East African civic infrastructure — combining ADK's orchestration capabilities with Kenya's public datasets.
 
 **The complete East African AI protocol stack:**
 
