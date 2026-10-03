@@ -1,13 +1,29 @@
 """Smoke tests for kenya-adk."""
-import sys, os
+import os
+import sys
+
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from agent import get_drought_status, get_constitutional_right, get_county_budget
+from agent import get_constitutional_right, get_county_budget, get_drought_status
 
-def test_drought_status():
+
+def test_drought_status_is_labelled_synthetic():
+    # The previous test only checked 1 <= phase <= 5, which passes for any invented number and so blessed the fabrication.
     r = get_drought_status("Turkana")
-    assert "phase" in r
-    assert 1 <= r["phase"] <= 5
+    assert r["is_synthetic"] is True and "NOT NDMA" in r["source"]
+    assert "population_affected" not in r          # a fabricated humanitarian figure
+    assert "SANDBOX=false" not in r["source"]      # no live mode exists; the variable is never read
+
+
+def test_drought_tool_description_does_not_claim_real_data():
+    # The docstring is what the LLM reads as the tool description.
+    doc = get_drought_status.__doc__
+    assert "DEMO" in doc and "NOT NDMA" in doc and "Get current NDMA" not in doc
+
+
+def test_module_makes_no_priority_claim():
+    import agent
+    assert "First" not in (agent.__doc__ or "")
 
 def test_rights_en():
     r = get_constitutional_right("water", "en")
