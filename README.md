@@ -47,19 +47,19 @@ adk web  # opens the ADK dev UI
 |-------|------|-------|
 | `BudgetAgent` | County budget absorption analysis | COB data, OCDS query |
 | `ParliamentAgent` | MP records, bills, CDF utilisation | Parliament data |
-| `DroughtAgent` | NDMA drought phases + SMS alerts | wapimaji-mcp, AT SMS |
+| `DroughtAgent` | **DEMO: synthetic drought values (not NDMA data)** + SMS alerts (confirm before sending) | wapimaji-mcp, AT SMS |
 | `RightsAgent` | Constitution of Kenya 2010 EN/SW | Bilingual KB |
 | `OrchestratorAgent` | Routes queries to specialist agents | All above |
 
-## Example interaction
+## Example interaction (illustrative; the numbers below are invented for the example)
 
 ```
 User: "Which counties in northern Kenya are in drought crisis and how can we send SMS alerts to farmers there?"
 
-KenyaADK:
-  → DroughtAgent: Marsabit (Phase 3), Turkana (Phase 4), Wajir (Phase 3)
-  → MCP tool: sms_send (via mpesa-mcp / Africa's Talking)
-  → Response: "3 counties in drought crisis. 1,247 farmers in the database. Ready to send SMS alerts — confirm?"
+KenyaADK (illustration of the intended flow, not real output):
+  → DroughtAgent: reports DEMO values clearly labelled synthetic (no live NDMA source is implemented)
+  → MCP tool: sms_send (via mpesa-mcp / Africa's Talking), only after explicit human confirmation
+  → Response: states the values are synthetic and asks for confirmation before any SMS
 ```
 
 ## ADK + MCP + A2A

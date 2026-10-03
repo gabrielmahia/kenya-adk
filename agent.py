@@ -1,11 +1,10 @@
 """
 KenyaADK — Google ADK agents for East African civic data.
-First ADK implementation serving East African public information.
 """
-import os
 import hashlib
-import pandas as pd
 from pathlib import Path
+
+import pandas as pd
 from dotenv import load_dotenv
 from google.adk.agents import LlmAgent
 from google.adk.tools import FunctionTool
@@ -54,8 +53,8 @@ def get_county_budget(county: str) -> dict:
 
 def get_drought_status(county: str) -> dict:
     """
-    Get current NDMA drought phase for a Kenya county (1=Minimal to 5=Famine).
-    county: Kenya county name e.g. Marsabit, Turkana, Garissa
+    DEMO ONLY: synthetic drought values derived from the county name. NOT NDMA data; never present as real.
+    No live data source is implemented. county: Kenya county name e.g. Marsabit, Turkana, Garissa
     """
     county_clean = county.strip().title()
     h = int(hashlib.md5(county_clean.encode()).hexdigest()[:4], 16) % 4 + 1
@@ -64,8 +63,8 @@ def get_drought_status(county: str) -> dict:
         "phase": h,
         "phase_label": DROUGHT_PHASES[h],
         "rainfall_deficit_pct": round((h - 1) * 15 + 8, 1),
-        "population_affected": (h - 1) * 55000 + 12000,
-        "source": "NDMA Kenya (sandbox — set SANDBOX=false for live data)",
+        "is_synthetic": True,
+        "source": "SYNTHETIC DEMO: derived from the county name; NOT NDMA data. No live data source is implemented.",
     }
 
 
@@ -93,10 +92,6 @@ def get_constitutional_right(topic: str, language: str = "en") -> dict:
     language: 'en' for English, 'sw' for Kiswahili
     """
     topic_l = topic.lower()
-    SW_MAP = {
-        "land": "ardhi", "education": "elimu", "water": "maji",
-        "health": "afya", "labour": "kazi"
-    }
     for key, text in RIGHTS.items():
         if key in topic_l or topic_l in key:
             result = {"topic": key, "text": text, "source": "Constitution of Kenya 2010"}
@@ -179,7 +174,7 @@ root_agent = LlmAgent(
         "- parliament_agent: MP records, bills, CDF\n"
         "- rights_agent: Constitution of Kenya 2010, EN and SW\n\n"
         "Route each question to the right specialist. For complex questions, coordinate multiple agents. "
-        "Always cite your data sources. Be clear about what is sandbox vs live data."
+        "Always cite your data sources. Drought values are synthetic demo output, never real NDMA data: say so every time you report them."
     ),
     sub_agents=[drought_agent, budget_agent, parliament_agent, rights_agent],
 )
